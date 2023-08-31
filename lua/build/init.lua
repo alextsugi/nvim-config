@@ -6,7 +6,7 @@ require("build.plugins")
 -- Vim options
 vim.opt.clipboard = "unnamedplus"          -- use system clipboard
 vim.opt.completeopt = { "menuone", "noselect" }
-vim.opt.fileencoding = "utf-8"             -- the encoding written to a file
+-- vim.opt.fileencoding = "utf-8"             -- the encoding written to a file
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.hidden = true                      -- to keep multiple buffers open
 vim.opt.hlsearch = true                    -- highlight all matches

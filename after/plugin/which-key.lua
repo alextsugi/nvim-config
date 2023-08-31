@@ -23,6 +23,7 @@ wk.register({
 
 opts = { mode = "n", prefix = "<leader>" }
 wk.register({
+  e = { "Explorer" },
   q = { "Quit" },
   m = { "Mark File" },
   u = { "Undo Tree" },
@@ -66,4 +67,5 @@ wk.register({
     R = { "Registers" },
     M = { "Man Pages" },
   },
+  D = { "Databases" }
 }, opts)

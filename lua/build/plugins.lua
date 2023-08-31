@@ -89,4 +89,9 @@ require("lazy").setup({
       'linrongbin16/lsp-progress.nvim',
     },
   },
+  {
+    'kristijanhusak/vim-dadbod-ui',
+    dependencies = "tpope/vim-dadbod",
+    cmd = "DBUIToggle",
+  },
 })
