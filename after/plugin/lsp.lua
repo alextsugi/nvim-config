@@ -10,17 +10,20 @@ lsp.ensure_installed({
 })
 
 local cmp = require("cmp")
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_action = require('lsp-zero').cmp_action()
+local cmp_select = { behavior = cmp.SelectBehavior.Insert }
+
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ["<CR>"] = cmp.mapping.confirm({ select = true }),
   ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
   ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
   ["<C-Space>"] = cmp.mapping.complete(),
+  ["<Tab>"] = cmp_action.luasnip_supertab(),
 })
 
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings,
-  select_behavior = "insert",
+  select_behavior = cmp.SelectBehavior.Insert,
 })
 
 lsp.set_preferences({

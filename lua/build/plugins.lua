@@ -19,6 +19,7 @@ require("lazy").setup({
   "folke/zen-mode.nvim",
   "karb94/neoscroll.nvim",
   "lewis6991/gitsigns.nvim",
+  "numToStr/Comment.nvim",
   {
     "rose-pine/neovim",
     name = "rose-pine",
@@ -35,22 +36,21 @@ require("lazy").setup({
     }
   },
   {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v2.x",
     dependencies = {
       -- LSP Support
-      {'neovim/nvim-lspconfig'},             -- Required
-      {'williamboman/mason.nvim'},           -- Optional
-      {'williamboman/mason-lspconfig.nvim'}, -- Optional
+      "neovim/nvim-lspconfig",             -- Required
+      "williamboman/mason.nvim",           -- Optional
+      "williamboman/mason-lspconfig.nvim", -- Optional
 
       -- Autocompletion
-      {'hrsh7th/nvim-cmp'},     -- Required
-      {'hrsh7th/cmp-nvim-lsp'}, -- Required
-      {'L3MON4D3/LuaSnip'},     -- Required
+      "hrsh7th/nvim-cmp",             -- Required
+      "hrsh7th/cmp-nvim-lsp",         -- Required
+      "L3MON4D3/LuaSnip",             -- Required
+      "rafamadriz/friendly-snippets", -- Optional LuaSnip dependency
+      "saadparwaiz1/cmp_luasnip",     -- Optional LuaSnip source
     }
-  },
-  {
-    'numToStr/Comment.nvim',
   },
   {
     "theprimeagen/harpoon",
