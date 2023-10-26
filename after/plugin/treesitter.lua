@@ -29,3 +29,7 @@ require("nvim-treesitter.configs").setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+local context = require("treesitter-context")
+
+vim.keymap.set("n", "cc", context.go_to_context)

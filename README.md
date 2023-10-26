@@ -11,4 +11,4 @@
 ## TODO
 
 - [ ] Go to the first implementation if there is only one
-- [ ] Jump to context (current function, type defenition or beginning of the current scope)
+- [ ] Fix goto action on an import line
