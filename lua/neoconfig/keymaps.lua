@@ -23,7 +23,6 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 -- Terminal mappings
 vim.api.nvim_set_keymap('t', '<ESC>', [[<C-\><C-n>]], { noremap = true })
 
-
 -- Netrw  mappings
 vim.keymap.set("n", "<leader>e", "<cmd>Ex<cr>")
 local netrw_mappings_group = vim.api.nvim_create_augroup("NetrwMappings", {})
