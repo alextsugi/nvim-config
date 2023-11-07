@@ -4,9 +4,9 @@ lsp.nvim_workspace()
 lsp.preset("recommended")
 
 lsp.ensure_installed({
-  "rust_analyzer",
-  "gopls",
-  "lua_ls",
+    "rust_analyzer",
+    "gopls",
+    "lua_ls",
 })
 
 local cmp = require("cmp")
@@ -14,16 +14,16 @@ local cmp_action = require('lsp-zero').cmp_action()
 local cmp_select = { behavior = cmp.SelectBehavior.Insert }
 
 local cmp_mappings = lsp.defaults.cmp_mappings({
-  ["<CR>"] = cmp.mapping.confirm({ select = true }),
-  ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-  ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-  ["<C-Space>"] = cmp.mapping.complete(),
-  ["<Tab>"] = cmp_action.luasnip_supertab(),
-})
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+        ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<Tab>"] = cmp_action.luasnip_supertab(),
+    })
 
 lsp.setup_nvim_cmp({
-  mapping = cmp_mappings,
-  select_behavior = cmp.SelectBehavior.Insert,
+    mapping = cmp_mappings,
+    select_behavior = cmp.SelectBehavior.Insert,
 })
 
 lsp.set_preferences({
@@ -36,21 +36,21 @@ lsp.set_preferences({
     }
 })
 
-local trouble = require("trouble")
+local telescope = require("telescope.builtin")
 
 lsp.on_attach(function(client, bufnr)
-  local opts = {buffer = bufnr, remap = false}
+  local opts = { buffer = bufnr, remap = false }
 
-  -- Set with which-key?
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-  vim.keymap.set("n", "gD", function () trouble.open("lsp_type_definitions") end, opts)
-  vim.keymap.set("n", "gi", function () trouble.open("lsp_implementations") end, opts)
-  vim.keymap.set("n", "gr", function () trouble.open("lsp_references") end, opts)
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+  vim.keymap.set("n", "gi", telescope.lsp_implementations, opts)
+  vim.keymap.set("n", "gr", telescope.lsp_references, opts)
+
   vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, opts)
-  vim.keymap.set("n", "<leader>ls", vim.lsp.buf.workspace_symbol, opts)
   vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, opts)
-  vim.keymap.set("n", "<leader>ld", function () trouble.open("document_diagnostics") end, opts)
+  vim.keymap.set("n", "<leader>ls", telescope.lsp_document_symbols, opts)
+  vim.keymap.set("n", "<leader>lS", telescope.lsp_workspace_symbols, opts)
+
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
   vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 end)

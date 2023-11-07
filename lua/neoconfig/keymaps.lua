@@ -1,6 +1,6 @@
 vim.g.mapleader = ","
 
-vim.keymap.set("n", "<leader>q", "<cmd>confirm q<cr>")
+vim.keymap.set("n", "<leader>q", "<cmd>bd<cr>")
 vim.keymap.set("n", "<leader>n", "<cmd>ene!<cr>")
 vim.keymap.set("n", "<leader>c", "<cmd>nohlsearch<cr>")
 
@@ -21,7 +21,11 @@ vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Terminal mappings
-vim.api.nvim_set_keymap('t', '<ESC>', [[<C-\><C-n>]], { noremap = true })
+vim.api.nvim_set_keymap("t", "<ESC>", [[<C-\><C-n>]], { noremap = true })
+
+-- Diagnostics
+vim.keymap.set("n", "<leader>ln", vim.diagnostic.goto_next, { noremap = true })
+vim.keymap.set("n", "<leader>lp", vim.diagnostic.goto_prev, { noremap = true })
 
 -- Netrw  mappings
 vim.keymap.set("n", "<leader>e", "<cmd>Ex<cr>")

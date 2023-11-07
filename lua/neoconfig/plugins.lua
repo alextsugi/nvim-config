@@ -75,19 +75,19 @@ require("lazy").setup({
     event = "BufRead",
   },
   {
-    "folke/trouble.nvim",
-    dependencies = "nvim-tree/nvim-web-devicons",
-  },
-  {
     "linrongbin16/lsp-progress.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
   },
   {
-    'nvim-lualine/lualine.nvim',
+    "nvim-lualine/lualine.nvim",
     dependencies = {
-      'nvim-tree/nvim-web-devicons',
-      'linrongbin16/lsp-progress.nvim',
+      "nvim-tree/nvim-web-devicons",
+      "linrongbin16/lsp-progress.nvim",
     },
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = "mfussenegger/nvim-dap",
   },
   {
     'kristijanhusak/vim-dadbod-ui',

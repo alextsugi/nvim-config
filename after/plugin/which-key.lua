@@ -7,6 +7,13 @@ wk.register({
   ["<C-m>"] = { "Go to mark 2" },
   ["<C-t>"] = { "Go to terminal" },
   ["<leader>z"] = { "Zen Mode" },
+  K = { "Code Actions" },
+  g = {
+    name = "Go To",
+    d = { "Definition" },
+    i = { "Implementations" },
+    r = { "References" },
+  },
   -- <z=> for spelling
 }, opts)
 
@@ -23,6 +30,18 @@ wk.register({
 
 opts = { mode = "n", prefix = "<leader>" }
 wk.register({
+  a = { "Code Actions" },
+  l = {
+    name = "LSP",
+    r = { "Rename" },
+    f = { "Format" },
+    s = { "Buffer Symbols" },
+    S = { "Workspace Symbols" },
+    d = { "Buffer Diagnostics" },
+    D = { "Workspace Diagnostics" },
+    n = { "Next Diagnostic" },
+    p = { "Previous Diagnostic" },
+  },
   e = { "Explorer" },
   q = { "Quit" },
   m = { "Mark File" },
@@ -56,7 +75,7 @@ wk.register({
   },
   f = {
     name = "Find",
-    b = { "Marked Files" },
+    m = { "Marked Files" },
     f = { "File" },
     g = { "Grep" },
     r = { "Open Recent File" },
@@ -66,6 +85,19 @@ wk.register({
     C = { "Commands" },
     R = { "Registers" },
     M = { "Man Pages" },
+    b = { "Opened Buffers" },
   },
-  D = { "Databases" }
+  d = {
+    name = "Debug",
+    c = { "Continue/Launch" },
+    s = { "Step Over" },
+    i = { "Step Into" },
+    o = { "Step Out" },
+    t = { "Toggle Breakpoint" },
+    j = { "Run to Cursor" },
+    r = { "Restart" },
+    q = { "Quit" },
+  },
+  D = { "Databases" },
+  Z = { "Zen Mode" },
 }, opts)

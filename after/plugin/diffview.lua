@@ -35,6 +35,7 @@ require("diffview").setup({
       ["<s-tab>"]   = cb("select_prev_entry"),  -- Open the diff for the previous file
       ["<leader>e"] = cb("focus_files"),        -- Bring focus to the files panel
       ["<leader>n"] = cb("toggle_files"),       -- Toggle the files panel.
+      ["<leader>q"] = "<cmd>DiffviewClose<cr>",
     },
     file_panel = {
       ["j"]             = cb("next_entry"),         -- Bring the cursor to the next file entry
@@ -53,6 +54,7 @@ require("diffview").setup({
       ["<s-tab>"]       = cb("select_prev_entry"),
       ["<leader>e"]     = cb("focus_files"),
       ["<leader>n"]     = cb("toggle_files"),
+      ["<leader>q"]     = "<cmd>DiffviewClose<cr>",
     },
     file_history_panel = {
       ["g!"]            = cb("options"),            -- Open the option panel
@@ -74,10 +76,14 @@ require("diffview").setup({
       ["<C-w>gf"]       = cb("goto_file_tab"),
       ["<leader>e"]     = cb("focus_files"),
       ["<leader>b"]     = cb("toggle_files"),
+      ["<leader>q"]     = "<cmd>DiffviewClose<cr>",
     },
     option_panel = {
-      ["<tab>"] = cb("select"),
-      ["q"]     = cb("close"),
+      ["<tab>"]     = cb("select"),
+      ["q"]         = cb("close"),
+      ["<leader>q"] = "<cmd>DiffviewClose<cr>",
     },
   },
 })
+
+vim.keymap.set("n", "<leader>gD", "<cmd>DiffviewOpen<cr>")
