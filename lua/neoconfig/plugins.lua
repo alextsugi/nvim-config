@@ -53,6 +53,11 @@ require("lazy").setup({
     }
   },
   {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = {}
+  },
+  {
     "theprimeagen/harpoon",
     dependencies = "nvim-lua/plenary.nvim",
   },

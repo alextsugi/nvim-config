@@ -3,7 +3,7 @@ require("nvim-treesitter.configs").setup {
   ensure_installed = {
 	  "c", "cpp", "rust",
 	  "go",
-	  "yaml", "json", "http",
+	  "toml", "yaml", "json", "http",
 	  "markdown",
 	  "bash", "javascript", "typescript",
 	  "lua", "vim", "vimdoc", "query",
