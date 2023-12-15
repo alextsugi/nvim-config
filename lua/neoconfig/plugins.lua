@@ -50,6 +50,7 @@ require("lazy").setup({
       "L3MON4D3/LuaSnip",             -- Required
       "rafamadriz/friendly-snippets", -- Optional LuaSnip dependency
       "saadparwaiz1/cmp_luasnip",     -- Optional LuaSnip source
+      "folke/neodev.nvim",            -- Optional for plugin development
     }
   },
   {

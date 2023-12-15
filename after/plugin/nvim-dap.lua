@@ -6,18 +6,19 @@ vim.keymap.set("n", "<leader>di", dap.step_into)
 vim.keymap.set("n", "<leader>do", dap.step_out)
 vim.keymap.set("n", "<leader>dt", dap.toggle_breakpoint)
 vim.keymap.set("n", "<leader>dj", dap.run_to_cursor)
+vim.keymap.set("n", "<leader>du", dap.up)
+vim.keymap.set("n", "<leader>dd", dap.down)
 vim.keymap.set("n", "<leader>dr", dap.restart)
 vim.keymap.set("n", "<leader>dq", dap.terminate)
-
--- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#ccrust-via-lldb-vscode
 
 ----------------------------------------
 -- C/C++/Rust
 ----------------------------------------
+-- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#ccrust-via-lldb-vscode
 
 dap.adapters.lldb = {
   type = 'executable',
-  command = '/usr/bin/lldb-vscode', -- must be absolute path
+  command = 'lldb-vscode', -- must be absolute path
   name = 'lldb'
 }
 
@@ -59,6 +60,12 @@ rustConfig.initCommands = function()
   table.insert(commands, 1, script_import)
 
   return commands
+end
+rustConfig.program = function ()
+  local cwd = vim.fn.getcwd()
+  local split = vim.fn.split(cwd, '/')
+  local app = split[#split]
+  return vim.fn.input('Path to executable: ', cwd .. '/target/debug/' .. app, 'file')
 end
 
 dap.configurations.rust = { rustConfig }

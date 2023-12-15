@@ -95,6 +95,8 @@ wk.register({
     o = { "Step Out" },
     t = { "Toggle Breakpoint" },
     j = { "Run to Cursor" },
+    u = { "Up" },
+    d = { "Down" },
     r = { "Restart" },
     q = { "Quit" },
   },
