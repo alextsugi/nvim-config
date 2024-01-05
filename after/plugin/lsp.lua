@@ -1,20 +1,20 @@
 -- For plugin development
 -- NOTE: make sure to setup neodev BEFORE lspconfig
 require("neodev").setup({
-  library = {
-    enabled = true, -- when not enabled, neodev will not change any settings to the LSP server
-    -- these settings will be used for your Neovim config directory
-    runtime = true, -- runtime path
-    types = true, -- full signature, docs and completion of vim.api, vim.treesitter, vim.lsp and others
-    plugins = true, -- installed opt or start plugins in packpath
-    -- you can also specify the list of plugins to make available as a workspace library
-    -- plugins = { "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
-  },
-  setup_jsonls = false, -- configures jsonls to provide completion for project specific .luarc.json files
-  -- With lspconfig, Neodev will automatically setup your lua-language-server
-  lspconfig = true,
-  -- much faster, but needs lua-language-server >= 3.6.0
-  pathStrict = true,
+    library = {
+        enabled = true, -- when not enabled, neodev will not change any settings to the LSP server
+        -- these settings will be used for your Neovim config directory
+        runtime = true, -- runtime path
+        types = true, -- full signature, docs and completion of vim.api, vim.treesitter, vim.lsp and others
+        plugins = true, -- installed opt or start plugins in packpath
+        -- you can also specify the list of plugins to make available as a workspace library
+        -- plugins = { "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
+    },
+    setup_jsonls = false, -- configures jsonls to provide completion for project specific .luarc.json files
+    -- With lspconfig, Neodev will automatically setup your lua-language-server
+    lspconfig = true,
+    -- much faster, but needs lua-language-server >= 3.6.0
+    pathStrict = true,
 })
 
 local lsp = require("lsp-zero")
@@ -57,25 +57,21 @@ lsp.set_preferences({
 
 local telescope = require("telescope.builtin")
 
-lsp.on_attach(function(client, bufnr)
-  local opts = { buffer = bufnr, remap = false }
+lsp.on_attach(function(_client, bufnr)
+    local opts = { buffer = bufnr, remap = false }
 
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-  vim.keymap.set("n", "gi", telescope.lsp_implementations, opts)
-  vim.keymap.set("n", "gr", telescope.lsp_references, opts)
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "gi", telescope.lsp_implementations, opts)
+    vim.keymap.set("n", "gr", telescope.lsp_references, opts)
 
-  vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, opts)
-  vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, opts)
-  vim.keymap.set("n", "<leader>ls", telescope.lsp_document_symbols, opts)
-  vim.keymap.set("n", "<leader>lS", telescope.lsp_workspace_symbols, opts)
+    vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, opts)
+    vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, opts)
+    vim.keymap.set("n", "<leader>ls", telescope.lsp_document_symbols, opts)
+    vim.keymap.set("n", "<leader>lS", telescope.lsp_dynamic_workspace_symbols, opts)
 
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-  vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
-  vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 end)
 
 lsp.setup()
-
-vim.diagnostic.config({
-    virtual_text = true
-})

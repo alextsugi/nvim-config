@@ -31,11 +31,11 @@ vim.keymap.set("n", "<leader>lp", vim.diagnostic.goto_prev, { noremap = true })
 vim.keymap.set("n", "<leader>e", "<cmd>Ex<cr>")
 local netrw_mappings_group = vim.api.nvim_create_augroup("NetrwMappings", {})
 vim.api.nvim_create_autocmd("filetype", {
-  group = netrw_mappings_group,
-  pattern = "netrw",
-  desc = "Mappings for netrw",
-  callback = function()
-    local opts = { noremap = true, buffer = true }
-    vim.keymap.set("n", "v", "<cmd>normal! v<cr>", opts)
-  end,
+    group = netrw_mappings_group,
+    pattern = "netrw",
+    desc = "Mappings for netrw",
+    callback = function()
+        local opts = { noremap = true, buffer = true }
+        vim.keymap.set("n", "v", "<cmd>normal! v<cr>", opts)
+    end,
 })

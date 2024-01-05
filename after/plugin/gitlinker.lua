@@ -29,7 +29,7 @@ local cfg = {
 
 local ok, nl = pcall(require, "neoconfig-local")
 if ok then
-  nl.configure_gitlinker(cfg)
+    nl.configure_gitlinker(cfg)
 end
 
 gitlinker.setup(cfg)
