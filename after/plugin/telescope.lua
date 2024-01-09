@@ -1,12 +1,12 @@
 local utils = require("neoconfig.utils")
 
 require("telescope").setup({
-  pickers = {
-    find_files = {
-      -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-      find_command = { "rg", "-uu", "--files", "--glob", "!**/.git/*" },
+    pickers = {
+        find_files = {
+            -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+            find_command = { "rg", "-uu", "--files", "--glob", "!**/.git/*" },
+        },
     },
-  },
 })
 
 local telescope = require("telescope.builtin")

@@ -1,4 +1,4 @@
-local dap = require('dap')
+local dap = require("dap")
 local utils = require("neoconfig.utils")
 
 utils.n_keymap("<leader>dc", dap.continue, "Continue/Launch") -- launches a debugger if there is no active session
@@ -45,7 +45,7 @@ for k, v in pairs(cConfig) do rustConfig[k] = v end
 -- Add rust types
 rustConfig.initCommands = function()
     -- Find out where to look for the pretty printer Python module
-    local rustc_sysroot = vim.fn.trim(vim.fn.system('rustc --print sysroot'))
+    local rustc_sysroot = vim.fn.trim(vim.fn.system("rustc --print sysroot"))
 
     local script_import = 'command script import "' .. rustc_sysroot .. '/lib/rustlib/etc/lldb_lookup.py"'
     local commands_file = rustc_sysroot .. "/lib/rustlib/etc/lldb_commands"

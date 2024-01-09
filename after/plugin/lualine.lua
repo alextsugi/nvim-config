@@ -8,8 +8,7 @@ require("lualine").setup({
         lualine_c = { "require('lsp-progress').progress()" },
         lualine_x = {
             {
-                'diagnostics',
-
+                "diagnostics",
                 -- Displays diagnostics for the defined severity types
                 sections = { "error", "warn" },
                 symbols = { error = 'E', warn = 'W' },

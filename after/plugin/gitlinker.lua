@@ -1,4 +1,7 @@
 local gitlinker = require("gitlinker")
+local gitlinker_actions = require("gitlinker.actions")
+local gitlinker_hosts = require("gitlinker.hosts")
+
 local utils = require("neoconfig.utils")
 
 local cfg = {
@@ -7,22 +10,22 @@ local cfg = {
         -- adds current line nr in the url for normal mode
         add_current_line_on_normal_mode = true,
         -- callback for what to do with the url
-        action_callback = require "gitlinker.actions".copy_to_clipboard,
+        action_callback = gitlinker_actions.copy_to_clipboard,
         -- print the url after performing the action
         print_url = true,
     },
     callbacks = {
-        ["github.com"] = require "gitlinker.hosts".get_github_type_url,
-        ["gitlab.com"] = require "gitlinker.hosts".get_gitlab_type_url,
-        ["try.gitea.io"] = require "gitlinker.hosts".get_gitea_type_url,
-        ["codeberg.org"] = require "gitlinker.hosts".get_gitea_type_url,
-        ["bitbucket.org"] = require "gitlinker.hosts".get_bitbucket_type_url,
-        ["try.gogs.io"] = require "gitlinker.hosts".get_gogs_type_url,
-        ["git.sr.ht"] = require "gitlinker.hosts".get_srht_type_url,
-        ["git.launchpad.net"] = require "gitlinker.hosts".get_launchpad_type_url,
-        ["repo.or.cz"] = require "gitlinker.hosts".get_repoorcz_type_url,
-        ["git.kernel.org"] = require "gitlinker.hosts".get_cgit_type_url,
-        ["git.savannah.gnu.org"] = require "gitlinker.hosts".get_cgit_type_url,
+        ["github.com"] = gitlinker_hosts.get_github_type_url,
+        ["gitlab.com"] = gitlinker_hosts.get_gitlab_type_url,
+        ["try.gitea.io"] = gitlinker_hosts.get_gitea_type_url,
+        ["codeberg.org"] = gitlinker_hosts.get_gitea_type_url,
+        ["bitbucket.org"] = gitlinker_hosts.get_bitbucket_type_url,
+        ["try.gogs.io"] = gitlinker_hosts.get_gogs_type_url,
+        ["git.sr.ht"] = gitlinker_hosts.get_srht_type_url,
+        ["git.launchpad.net"] = gitlinker_hosts.get_launchpad_type_url,
+        ["repo.or.cz"] = gitlinker_hosts.get_repoorcz_type_url,
+        ["git.kernel.org"] = gitlinker_hosts.get_cgit_type_url,
+        ["git.savannah.gnu.org"] = gitlinker_hosts.get_cgit_type_url,
     },
     -- Use custom mappings
     mappings = nil,
