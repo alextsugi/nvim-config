@@ -1,4 +1,5 @@
 local gitlinker = require("gitlinker")
+local utils = require("neoconfig.utils")
 
 local cfg = {
     opts = {
@@ -34,5 +35,5 @@ end
 
 gitlinker.setup(cfg)
 
-vim.keymap.set("n", "<leader>gy", function() gitlinker.get_buf_range_url("n") end)
-vim.keymap.set("v", "<leader>gy", function() gitlinker.get_buf_range_url("v") end)
+utils.n_keymap("<leader>gy", function() gitlinker.get_buf_range_url("n") end, "Yank url")
+utils.v_keymap("<leader>gy", function() gitlinker.get_buf_range_url("v") end, "Yank url for selected")

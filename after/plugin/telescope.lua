@@ -1,3 +1,5 @@
+local utils = require("neoconfig.utils")
+
 require("telescope").setup({
   pickers = {
     find_files = {
@@ -8,14 +10,14 @@ require("telescope").setup({
 })
 
 local telescope = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", telescope.find_files) -- or git_files?
-vim.keymap.set("n", "<leader>fg", telescope.live_grep)
-vim.keymap.set("n", "<leader>fr", telescope.oldfiles)
-vim.keymap.set("n", "<leader>fk", telescope.keymaps)
-vim.keymap.set("n", "<leader>fH", telescope.help_tags)
-vim.keymap.set("n", "<leader>fC", telescope.commands)
-vim.keymap.set("n", "<leader>fR", telescope.registers)
-vim.keymap.set("n", "<leader>fM", telescope.man_pages)
-vim.keymap.set("n", "<leader>fb", telescope.buffers)
-vim.keymap.set("n", "<leader>lD", telescope.diagnostics)
-vim.keymap.set("n", "<leader>ld", function() telescope.diagnostics({ bufnr = 0 }) end)
+utils.n_keymap("<leader>ff", telescope.find_files, "Files") -- or git_files?
+utils.n_keymap("<leader>fg", telescope.live_grep, "Grep")
+utils.n_keymap("<leader>fr", telescope.oldfiles, "Recent files")
+utils.n_keymap("<leader>fk", telescope.keymaps, "Keymaps")
+utils.n_keymap("<leader>fH", telescope.help_tags, "Help")
+utils.n_keymap("<leader>fC", telescope.commands, "Commands")
+utils.n_keymap("<leader>fR", telescope.registers, "Registers")
+utils.n_keymap("<leader>fM", telescope.man_pages, "Man pages")
+utils.n_keymap("<leader>fb", telescope.buffers, "Buffers")
+utils.n_keymap("<leader>lD", telescope.diagnostics, "Diagnostics project")
+utils.n_keymap("<leader>ld", function() telescope.diagnostics({ bufnr = 0 }) end, "Diagnostics buffer")

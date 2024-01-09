@@ -1,4 +1,5 @@
 local zen_mode = require("zen-mode")
+local utils = require("neoconfig.utils")
 
 zen_mode.setup({
     window = {
@@ -7,4 +8,4 @@ zen_mode.setup({
     },
 })
 
-vim.keymap.set("n", "<leader>z", zen_mode.toggle)
+utils.n_keymap("<leader>z", zen_mode.toggle, "Zen mode")

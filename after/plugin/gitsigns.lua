@@ -1,27 +1,24 @@
+local utils = require("neoconfig.utils")
+
 require("gitsigns").setup({
     on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
-
-        local function map(mode, l, r, opts)
-            opts = opts or {}
-            opts.buffer = bufnr
-            vim.keymap.set(mode, l, r, opts)
-        end
+        local opts = { buffer = bufnr }
 
         -- Actions
-        map('n', '<leader>gs', gs.stage_hunk)
-        map('n', '<leader>gr', gs.reset_hunk)
-        map('n', '<leader>gu', gs.undo_stage_hunk)
-        map('n', '<leader>gb', gs.toggle_current_line_blame)
-        map('n', '<leader>gd', function() gs.diffthis('~') end)
-        map('n', '<leader>gp', gs.preview_hunk)
-        map('n', '<leader>gS', gs.stage_buffer)
-        map('n', '<leader>gR', gs.reset_buffer)
+        utils.n_keymap('<leader>gs', gs.stage_hunk, "Stage hunk", opts)
+        utils.n_keymap('<leader>gr', gs.reset_hunk, "Reset hunk", opts)
+        utils.n_keymap('<leader>gu', gs.undo_stage_hunk, "Undo stage hunk", opts)
+        utils.n_keymap('<leader>gb', gs.toggle_current_line_blame, "Blame", opts)
+        utils.n_keymap('<leader>gd', function() gs.diffthis('~') end, "Diff", opts)
+        utils.n_keymap('<leader>gp', gs.preview_hunk, "Preview hunk", opts)
+        utils.n_keymap('<leader>gS', gs.stage_buffer, "Stage buffer", opts)
+        utils.n_keymap('<leader>gR', gs.reset_buffer, "Reset buffer", opts)
 
-        map('v', '<leader>gs', function() gs.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
-        map('v', '<leader>gr', function() gs.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+        utils.v_keymap('<leader>gs', function() gs.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end, "Stage hunk", opts)
+        utils.v_keymap('<leader>gr', function() gs.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end, "Reset hunk", opts)
 
         -- Text object
-        map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+        utils.keymap({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', "Select hunk", opts)
     end
 })

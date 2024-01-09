@@ -31,28 +31,23 @@ require("lazy").setup({
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter-context" -- Optional
-        }
+        dependencies = "nvim-treesitter/nvim-treesitter-context"
     },
+    -- LSP
+    "neovim/nvim-lspconfig",
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-nvim-lsp",
+    "L3MON4D3/LuaSnip",
+    "rafamadriz/friendly-snippets",
+    "saadparwaiz1/cmp_luasnip",
+    "folke/neodev.nvim",
     {
-        "VonHeikemen/lsp-zero.nvim",
-        branch = "v2.x",
-        dependencies = {
-            -- LSP Support
-            "neovim/nvim-lspconfig", -- Required
-            "williamboman/mason.nvim", -- Optional
-            "williamboman/mason-lspconfig.nvim", -- Optional
-
-            -- Autocompletion
-            "hrsh7th/nvim-cmp", -- Required
-            "hrsh7th/cmp-nvim-lsp", -- Required
-            "L3MON4D3/LuaSnip", -- Required
-            "rafamadriz/friendly-snippets", -- Optional LuaSnip dependency
-            "saadparwaiz1/cmp_luasnip", -- Optional LuaSnip source
-            "folke/neodev.nvim", -- Optional for plugin development
-        }
+        "mrcjkb/rustaceanvim",
+        ft = "rust",
     },
+    -- LSP END
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",

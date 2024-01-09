@@ -1,14 +1,37 @@
 require("rose-pine").setup({
     variant = "main",
     disable_background = true,
+    disable_float_background = false,
+    highlight_groups = {
+        FloatTitle = { bg = "none" },
+        FloatBorder = { bg = "none" },
+        NormalFloat = { bg = "none" },
+        TelescopeBorder = { fg = "highlight_high", bg = "none" },
+        TelescopeNormal = { bg = "none" },
+        TelescopePromptNormal = { bg = "base" },
+        TelescopeResultsNormal = { fg = "subtle", bg = "none" },
+        TelescopeSelection = { fg = "text", bg = "base" },
+        TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
+        GitSignsAdd = { bg = "none" },
+        GitSignsChange = { bg = "none" },
+        GitSignsDelete = { bg = "none" },
+    },
 })
 
 vim.cmd("colorscheme rose-pine")
 
--- Style for highlight groups
+local border_style = "rounded"
 
-local hl_style = { bg = "none" }
-vim.api.nvim_set_hl(0, "Normal", hl_style)
-vim.api.nvim_set_hl(0, "NormalFloat", hl_style)
-vim.api.nvim_set_hl(0, "FloatBorder", hl_style)
-vim.api.nvim_set_hl(0, "FloatTitle", hl_style)
+vim.diagnostic.config({
+    float = { border = border_style },
+})
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+        vim.lsp.handlers.hover, {
+        border = border_style
+    })
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+        vim.lsp.handlers.signature_help, {
+        border = border_style
+    })

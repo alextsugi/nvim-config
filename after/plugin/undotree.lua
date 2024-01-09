@@ -1,1 +1,3 @@
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+local utils = require("neoconfig.utils")
+
+utils.n_keymap("<leader>u", vim.cmd.UndotreeToggle, "Undo tree")

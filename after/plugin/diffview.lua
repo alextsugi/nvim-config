@@ -1,3 +1,5 @@
+local utils = require("neoconfig.utils")
+
 local cb = require("diffview.config").diffview_callback
 require("diffview").setup({
     diff_binaries = false, -- Show diffs for binaries
@@ -86,4 +88,4 @@ require("diffview").setup({
     },
 })
 
-vim.keymap.set("n", "<leader>gD", "<cmd>DiffviewOpen<cr>")
+utils.n_keymap("<leader>gD", "<cmd>DiffviewOpen<cr>", "Diff view")

@@ -1,4 +1,7 @@
 require("lualine").setup({
+    options = {
+        theme = "rose-pine",
+    },
     sections = {
         lualine_a = { { "mode", fmt = function(str) return str:sub(1, 1) end } },
         lualine_b = { "branch" },
@@ -18,7 +21,7 @@ require("lualine").setup({
         },
         lualine_y = { "progress" },
         lualine_z = { "location" },
-    }
+    },
 })
 
 -- Refresh on progress

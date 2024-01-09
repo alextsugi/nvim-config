@@ -1,3 +1,5 @@
+local utils = require("neoconfig.utils")
+
 -- Environment file selector
 local telescope = require("telescope.builtin")
 local actions = require("telescope.actions")
@@ -37,5 +39,5 @@ local function select_rest_environment()
 end
 -- End environment file selector
 
-vim.keymap.set("n", "<leader>tt", function() require("rest-nvim").run() end)
-vim.keymap.set("n", "<leader>te", select_rest_environment)
+utils.n_keymap("<leader>tt", function() require("rest-nvim").run() end, "HTTP request")
+utils.n_keymap("<leader>te", select_rest_environment, "HTTP environment")

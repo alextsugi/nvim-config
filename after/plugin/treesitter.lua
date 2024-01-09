@@ -1,3 +1,5 @@
+local utils = require("neoconfig.utils")
+
 require("nvim-treesitter.configs").setup {
     -- A list of parser names, or "all" (the five listed parsers should always be installed)
     ensure_installed = {
@@ -35,8 +37,7 @@ require("nvim-treesitter.configs").setup {
 }
 
 local context = require("treesitter-context")
-
-vim.keymap.set("n", "cc", context.go_to_context)
+utils.n_keymap("cc", context.go_to_context, "Code context")
 
 -- Folding
 vim.opt.foldenable = false

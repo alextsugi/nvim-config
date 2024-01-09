@@ -1,4 +1,6 @@
+local utils = require("neoconfig.utils")
+
 require('Comment').setup()
 
-vim.keymap.set("n", "<leader>/", "<Plug>(comment_toggle_linewise_current)")
-vim.keymap.set("v", "<leader>/", "<Plug>(comment_toggle_linewise_visual)")
+utils.n_keymap("<leader>/", "<Plug>(comment_toggle_linewise_current)", "Comment line")
+utils.v_keymap("<leader>/", "<Plug>(comment_toggle_linewise_visual)", "Comment selection")
