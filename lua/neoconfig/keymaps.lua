@@ -17,10 +17,13 @@ utils.n_keymap("<leader>b]", "<cmd>vertical resize +5<cr>", "Vertica resize")
 utils.n_keymap("<leader>b[", "<cmd>vertical resize -5<cr>", "Horizontal resize")
 
 -- Better window movement
-utils.n_keymap("<C-h>", "<C-w>h", "Left window")
-utils.n_keymap("<C-j>", "<C-w>j", "Bottom window")
-utils.n_keymap("<C-k>", "<C-w>k", "Top window")
-utils.n_keymap("<C-l>", "<C-w>l", "Right window")
+local function keymap_window_nav(opts)
+    utils.n_keymap("<C-h>", "<C-w>h", "Left window", opts)
+    utils.n_keymap("<C-j>", "<C-w>j", "Bottom window", opts)
+    utils.n_keymap("<C-k>", "<C-w>k", "Top window", opts)
+    utils.n_keymap("<C-l>", "<C-w>l", "Right window", opts)
+end
+keymap_window_nav()
 
 -- Terminal mappings
 utils.t_keymap("<ESC>", [[<C-\><C-n>]], "Quit terminal", { noremap = true })
@@ -39,5 +42,6 @@ vim.api.nvim_create_autocmd("filetype", {
     callback = function()
         local opts = { noremap = true, buffer = true }
         utils.n_keymap("v", "<cmd>normal! v<cr>", "Visual mode", opts)
+        keymap_window_nav(opts)
     end,
 })

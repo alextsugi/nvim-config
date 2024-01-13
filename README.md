@@ -9,7 +9,3 @@
 * [BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep) to find files
 * [Theme for your terminal app](https://rosepinetheme.com/themes) (optional)
 
-## TODO
-
-- [ ] Go to the first implementation if there is only one
-- [ ] Fix goto action on an import line

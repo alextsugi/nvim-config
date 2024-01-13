@@ -37,7 +37,7 @@ require("neodev").setup({
 local telescope = require("telescope.builtin")
 local default_server_mappings = {
     n = {
-        gd = { vim.lsp.buf.definition, "Definition" },
+        gd = { telescope.lsp_definitions, "Definition" },
         gi = { telescope.lsp_implementations, "Implementations" },
         gr = { telescope.lsp_references, "References" },
         K = { vim.lsp.buf.hover, "Hover" },
@@ -52,7 +52,7 @@ local default_server_mappings = {
     },
 }
 
-local rs_binding = function(action)
+local function rs_binding(action)
     return function()
         vim.cmd.RustLsp(action)
     end
@@ -89,7 +89,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Default setup function for LSP server, i.e., `lsp[server].setup()`
-local default_setup = function(server)
+local function default_setup(server)
     lsp[server].setup({
         capabilities = lsp_capabilities,
     })
