@@ -23,6 +23,10 @@ local function keymap_window_nav(opts)
     utils.n_keymap("<C-k>", "<C-w>k", "Top window", opts)
     utils.n_keymap("<C-l>", "<C-w>l", "Right window", opts)
 end
+utils.n_keymap("<C-H>", "<C-w>H", "Left window")
+utils.n_keymap("<C-J>", "<C-w>J", "Bottom window")
+utils.n_keymap("<C-K>", "<C-w>K", "Top window")
+utils.n_keymap("<C-L>", "<C-w>L", "Right window")
 keymap_window_nav()
 
 -- Terminal mappings

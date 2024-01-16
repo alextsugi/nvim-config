@@ -2,7 +2,7 @@ local M = {}
 
 local default_opts = {
     silent = true,
-    noremap = true,
+    noremap = false,
 }
 
 local function with_default_opts(opts, desc)
