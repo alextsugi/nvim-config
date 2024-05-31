@@ -1,0 +1,57 @@
+[plugins]
+# Rocks extensions
+# --------------------
+"rocks-git.nvim" = "1.5.1"
+"rocks-config.nvim" = "1.6.0"
+
+# Plugins
+# --------------------
+"rose-pine" = { git = "rose-pine/neovim" }
+"nvim-treesitter" = { git = "nvim-treesitter/nvim-treesitter" }
+"nvim-treesitter-context" = { git = "nvim-treesitter/nvim-treesitter-context" }
+"neoscroll.nvim" = "0.2.0"
+"which-key.nvim" = "1.6.0"
+"undotree" = { git = "mbbill/undotree" }
+"zen-mode" = { git = "folke/zen-mode.nvim" }
+"gitsigns.nvim" = { git = "lewis6991/gitsigns.nvim" }
+"comment.nvim" = "0.8.0"
+"telescope.nvim" = { git = "nvim-telescope/telescope.nvim" }
+"neodev.nvim" = { git = "folke/neodev.nvim" }
+"nvim-lspconfig" = "0.1.8"
+"mason.nvim" = "1.10.0"
+"mason-lspconfig.nvim" = "1.29.0"
+"nvim-cmp" = { git = "hrsh7th/nvim-cmp" }
+"cmp-nvim-lsp" = { git = "hrsh7th/cmp-nvim-lsp" }
+"luasnip" = "2.3.0"
+"cmp_luasnip" = { git = "saadparwaiz1/cmp_luasnip" }
+"friendly-snippets" = { git = "rafamadriz/friendly-snippets" }
+"lsp-progress.nvim" = "1.0.12"
+"nvim-autopairs" = { git = "windwp/nvim-autopairs" }
+"mrcjkb/rustaceanvim" = { git = "mrcjkb/rustaceanvim" }
+"harpoon" = { git = "theprimeagen/harpoon" }
+"diffview.nvim" = { git = "sindrets/diffview.nvim" }
+"lightspeed.nvim" = { git = "ggandor/lightspeed.nvim" }
+"nvim-dap-ui" = "4.0.0"
+"vim-dadbod" = { git = "tpope/vim-dadbod" }
+"vim-dadbod-ui" = { git = "kristijanhusak/vim-dadbod-ui" }
+"nvim-web-devicons" = { git = "nvim-tree/nvim-web-devicons" }
+"lualine.nvim" = { git = "nvim-lualine/lualine.nvim" }
+"gitlinker.nvim" = "4.13.1"
+"rest.nvim" = { git = "rest-nvim/rest.nvim" }
+
+[config]
+plugins_dir = "plugins/"
+auto_setup = false
+
+[bundles.lsp]
+items = [
+    "neodev.nvim",
+    "nvim-lspconfig",
+    "nvim-cmp",
+    "cmp-nvim-lsp",
+    "mason.nvim",
+    "mason-lspconfig.nvim",
+    "luasnip",
+    "cmp_luasnip",
+    "lsp-progress.nvim"
+]

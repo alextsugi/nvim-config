@@ -1,7 +1,7 @@
 -- `keymaps` should be the first require
 require("neoconfig.keymaps")
--- Plugins
-require("neoconfig.plugins")
+-- Rocks.nvim
+require("neoconfig.rocks")
 
 -- Vim options
 vim.opt.clipboard      = "unnamedplus" -- use system clipboard
