@@ -12,8 +12,15 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Plugins
-require("lazy").setup({
+local plugins = {
+    {
+      "vhyrro/luarocks.nvim",
+      priority = 1000,
+      config = true,
+      opts = {
+        rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" }
+      }
+    },
     "folke/which-key.nvim",
     "mbbill/undotree",
     "folke/zen-mode.nvim",
@@ -59,7 +66,7 @@ require("lazy").setup({
     },
     {
         "rest-nvim/rest.nvim",
-        dependencies = "nvim-lua/plenary.nvim",
+        dependencies = { "luarocks.nvim" },
         ft = "http",
     },
     {
@@ -91,8 +98,19 @@ require("lazy").setup({
         dependencies = "mfussenegger/nvim-dap",
     },
     {
-        'kristijanhusak/vim-dadbod-ui',
+        "kristijanhusak/vim-dadbod-ui",
         dependencies = "tpope/vim-dadbod",
         cmd = "DBUIToggle",
     },
-})
+}
+
+-- Extend with local plugins
+local ok, nl = pcall(require, "neoconfig-local")
+if ok then
+    local local_plugins = nl.local_plugins()
+    for _, plugin in ipairs(local_plugins) do
+        table.insert(plugins, plugin)
+    end
+end
+
+require("lazy").setup(plugins)

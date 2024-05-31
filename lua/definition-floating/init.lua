@@ -1,6 +1,7 @@
 local M = {}
 
 local utils = require("neoconfig.utils")
+local floating_buffer = require("definition-floating.floating_buffer")
 
 local default_config = {
     -- Highlight group for definition highlighting.
@@ -8,8 +9,8 @@ local default_config = {
     highlight_group = "Visual",
     floating_preview = {
         border = "rounded",
-        height = nil,
-        width = nil,
+        height = 20,
+        width = 60,
         max_height = 20,
         max_width = 60,
         focusable = true,
@@ -69,9 +70,13 @@ local function show_float(location)
     if syntax == "" then
         syntax = vim.api.nvim_buf_get_option(bufnr, "filetype")
     end
-    local float_bufnr, float_winnr = vim.lsp.util.open_floating_preview(
-            contents, syntax, config.private.preview_options)
 
+    local float_bufnr, float_winnr = floating_buffer.open_floating_preview(bufnr, config.private.preview_options)
+    -- local float_bufnr, float_winnr = vim.lsp.util.open_floating_preview(
+    --         contents, syntax, config.private.preview_options)
+
+
+    vim.api.nvim_buf_set_option(float_bufnr, "syntax", syntax)
     vim.api.nvim_buf_set_option(float_bufnr, "filetype", filetype)
     -- TODO: Add mutability
     -- if config.private.preview_options.modifiable then

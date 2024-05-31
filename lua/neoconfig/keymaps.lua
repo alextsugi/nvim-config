@@ -13,8 +13,10 @@ utils.n_keymap("<leader>h", "<cmd>split<cr>", "Horizontal split")
 -- Buffers
 -- utils.n_keymap("<C-l>", "<cmd>bnext<cr>", "Next buffer")
 -- utils.n_keymap("<C-h>", "<cmd>bprev<cr>", "Prev buffer")
-utils.n_keymap("<leader>b]", "<cmd>vertical resize +5<cr>", "Vertica resize")
-utils.n_keymap("<leader>b[", "<cmd>vertical resize -5<cr>", "Horizontal resize")
+utils.n_keymap("<leader>bh", "<cmd>vertical resize +5<cr>", "V Resize +")
+utils.n_keymap("<leader>bl", "<cmd>vertical resize -5<cr>", "V Resize -")
+utils.n_keymap("<leader>bk", "<cmd>horizontal resize +5<cr>", "H Resize +")
+utils.n_keymap("<leader>bj", "<cmd>horizontal resize -5<cr>", "H Resize -")
 
 -- Better window movement
 local function keymap_window_nav(opts)
