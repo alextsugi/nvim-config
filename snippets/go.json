@@ -1,0 +1,17 @@
+{
+    "if not nil": {
+        "prefix": "ifnn",
+        "body": "if ${1:var} != nil {\n\t$0\n}",
+        "description": "Snippet to check if a variable is nil"
+    },
+    "if not empty": {
+        "prefix": "icne",
+        "body": "if len(${1:var}) != 0 {\n\t$0\n}",
+        "description": "Snippet to check if a collection is not empty"
+    },
+    "if empty": {
+        "prefix": "ice",
+        "body": "if len(${1:var}) == 0 {\n\t$0\n}",
+        "description": "Snippet to check if a collection is empty"
+    }
+}
