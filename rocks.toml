@@ -29,6 +29,7 @@
 "nvim-autopairs" = { git = "windwp/nvim-autopairs" }
 "rustaceanvim" = { git = "mrcjkb/rustaceanvim" }
 "harpoon" = { git = "ThePrimeagen/harpoon", rev = "e76cb03" }                   # https://github.com/ThePrimeagen/harpoon/issues/577
+"toggleterm.nvim" = { git = "akinsho/toggleterm.nvim" }
 "diffview.nvim" = { git = "sindrets/diffview.nvim" }
 "lightspeed.nvim" = { git = "ggandor/lightspeed.nvim" }
 "vim-dadbod" = { git = "tpope/vim-dadbod" }
