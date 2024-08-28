@@ -27,17 +27,19 @@
 "friendly-snippets" = { git = "rafamadriz/friendly-snippets" }
 "lsp-progress.nvim" = "1.0.12"
 "nvim-autopairs" = { git = "windwp/nvim-autopairs" }
-"mrcjkb/rustaceanvim" = { git = "mrcjkb/rustaceanvim" }
-"harpoon" = { git = "theprimeagen/harpoon" }
+"rustaceanvim" = { git = "mrcjkb/rustaceanvim" }
+"harpoon" = { git = "ThePrimeagen/harpoon", rev = "e76cb03" } # https://github.com/ThePrimeagen/harpoon/issues/577
 "diffview.nvim" = { git = "sindrets/diffview.nvim" }
 "lightspeed.nvim" = { git = "ggandor/lightspeed.nvim" }
-"nvim-dap-ui" = "4.0.0"
 "vim-dadbod" = { git = "tpope/vim-dadbod" }
 "vim-dadbod-ui" = { git = "kristijanhusak/vim-dadbod-ui" }
 "nvim-web-devicons" = { git = "nvim-tree/nvim-web-devicons" }
 "lualine.nvim" = { git = "nvim-lualine/lualine.nvim" }
 "gitlinker.nvim" = "4.13.1"
 "rest.nvim" = { git = "rest-nvim/rest.nvim" }
+"nvim-dap" = { git = "mfussenegger/nvim-dap" }
+"nvim-nio" = { git = "nvim-neotest/nvim-nio" }
+"nvim-dap-ui" = { git = "rcarriga/nvim-dap-ui" }
 
 [config]
 plugins_dir = "plugins/"
@@ -53,5 +55,9 @@ items = [
     "mason-lspconfig.nvim",
     "luasnip",
     "cmp_luasnip",
-    "lsp-progress.nvim"
+    "lsp-progress.nvim",
+    "rustaceanvim",
 ]
+
+[bundles.dap]
+items = ["nvim-dap", "nvim-nio", "nvim-dap-ui"]

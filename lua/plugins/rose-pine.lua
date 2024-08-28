@@ -1,7 +1,7 @@
 require("rose-pine").setup({
     variant = "main",
     disable_background = true,
-    disable_float_background = false,
+    disable_float_background = true,
     highlight_groups = {
         FloatTitle = { bg = "none" },
         FloatBorder = { bg = "none" },

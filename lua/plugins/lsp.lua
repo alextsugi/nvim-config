@@ -102,9 +102,10 @@ require("mason-lspconfig").setup({
     handlers = {
         default_setup,
 
-        rust_analyzer = function()
-            -- Delegate to rustaceanvim
-        end,
+        -- TODO: Figure out what's wrong with rustaceanvim
+        -- rust_analyzer = function()
+        --     -- Delegate to rustaceanvim
+        -- end,
 
         lua_ls = function()
             lsp.lua_ls.setup({
