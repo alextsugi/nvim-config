@@ -41,6 +41,7 @@
 "nvim-dap" = { git = "mfussenegger/nvim-dap" }
 "nvim-nio" = { git = "nvim-neotest/nvim-nio" }
 "nvim-dap-ui" = { git = "rcarriga/nvim-dap-ui" }
+"octo.nvim" = { git = "pwntester/octo.nvim" }
 
 [config]
 plugins_dir = "plugins/"
