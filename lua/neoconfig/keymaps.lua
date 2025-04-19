@@ -1,6 +1,7 @@
 local utils = require("neoconfig.utils")
 
 vim.g.mapleader = ","
+vim.g.maplocalleader = ";"
 
 utils.n_keymap("<leader>q", "<cmd>bd<cr>", "Close buffer")
 utils.n_keymap("<leader>n", "<cmd>ene!<cr>", "New file")

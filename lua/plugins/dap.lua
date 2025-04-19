@@ -19,7 +19,7 @@ utils.n_keymap("<leader>dq", dap.terminate, "Quit/Terminate")
 
 dap.adapters.lldb = {
     type = "executable",
-    command = "lldb-vscode", -- must be absolute path
+    command = "/opt/homebrew/opt/llvm/bin/lldb-dap", -- must be absolute path
     name = "lldb"
 }
 
