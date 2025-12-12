@@ -91,6 +91,15 @@ local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Default setup function for LSP server, i.e., `lsp[server].setup()`
 local function default_setup(server)
+    local ok, nl = pcall(require, "neoconfig-local")
+    if ok then
+        local setup_lsp = nl.setup_lsp[server]
+        if setup_lsp then
+            setup_lsp(lsp, lsp_capabilities)
+            return
+        end
+    end
+
     lsp[server].setup({
         capabilities = lsp_capabilities,
     })
@@ -109,6 +118,7 @@ require("mason-lspconfig").setup({
 
         lua_ls = function()
             lsp.lua_ls.setup({
+                capabilities = lsp_capabilities,
                 settings = {
                     Lua = {
                         completion = {
@@ -121,27 +131,6 @@ require("mason-lspconfig").setup({
                 },
             })
         end,
-
-        yamlls = function()
-            local cfg = {
-                settings = {
-                    yaml = {
-                        schemaStore = {
-                            enabled = false,
-                            url = "",
-                        },
-                        schemas = {},
-                    },
-                },
-            }
-
-            local ok, nl = pcall(require, "neoconfig-local")
-            if ok then
-                nl.configure_yamlls(cfg)
-            end
-
-            lsp.yamlls.setup(cfg)
-        end
     },
 })
 

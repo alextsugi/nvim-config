@@ -1,11 +1,8 @@
 [plugins]
-# Rocks extensions
-# --------------------
+# rocks extensions
 "rocks-git.nvim" = "1.5.1"
 "rocks-config.nvim" = "1.6.0"
-
-# Plugins
-# --------------------
+"plenary.nvim" = "0.1.4"
 "rose-pine" = { git = "rose-pine/neovim" }
 "nvim-treesitter" = { git = "nvim-treesitter/nvim-treesitter" }
 "nvim-treesitter-context" = { git = "nvim-treesitter/nvim-treesitter-context" }
@@ -17,9 +14,9 @@
 "comment.nvim" = "0.8.0"
 "telescope.nvim" = { git = "nvim-telescope/telescope.nvim" }
 "neodev.nvim" = { git = "folke/neodev.nvim" }
-"nvim-lspconfig" = "0.1.8"
-"mason.nvim" = "1.10.0"
-"mason-lspconfig.nvim" = "1.29.0"
+"nvim-lspconfig" = "2.5.0"
+"mason.nvim" = "2.1.0"
+"mason-lspconfig.nvim" = "2.1.0"
 "nvim-cmp" = { git = "hrsh7th/nvim-cmp" }
 "cmp-nvim-lsp" = { git = "hrsh7th/cmp-nvim-lsp" }
 "luasnip" = "2.3.0"
@@ -37,11 +34,14 @@
 "nvim-web-devicons" = { git = "nvim-tree/nvim-web-devicons" }
 "lualine.nvim" = { git = "nvim-lualine/lualine.nvim" }
 "gitlinker.nvim" = { git = "ruifm/gitlinker.nvim" }
-"rest.nvim" = { git = "rest-nvim/rest.nvim" }
 "nvim-dap" = { git = "mfussenegger/nvim-dap" }
 "nvim-nio" = { git = "nvim-neotest/nvim-nio" }
 "nvim-dap-ui" = { git = "rcarriga/nvim-dap-ui" }
 "octo.nvim" = { git = "pwntester/octo.nvim" }
+# rest.nvim dependencies
+"rest.nvim" = { git = "rest-nvim/rest.nvim" }
+"mimetypes" = "1.1.0"
+"xml2lua" = "1.6"
 
 [config]
 plugins_dir = "plugins/"
