@@ -90,7 +90,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Default setup function for LSP server, i.e., `lsp[server].setup()`
-local function default_setup(server)
+local function default_setup()
     local ok, nl = pcall(require, "neoconfig-local")
     if ok then
         local setup_lsp = nl.setup_lsp[server]
@@ -106,32 +106,26 @@ local function default_setup(server)
 end
 
 -- Setup servers
+
+vim.lsp.config('lua_ls', {
+    Lua = {
+        completion = {
+            callSnippet = "Replace",
+        },
+        workspace = {
+            checkThirdParty = false,
+        },
+    },
+})
+
+local ok, nl = pcall(require, "neoconfig-local")
+if ok then
+    nl.setup_lsp()
+end
+
 require("mason").setup({})
 require("mason-lspconfig").setup({
     ensure_installed = ensure_installed,
-    handlers = {
-        default_setup,
-
-        rust_analyzer = function()
-            -- Delegate to rustaceanvim
-        end,
-
-        lua_ls = function()
-            lsp.lua_ls.setup({
-                capabilities = lsp_capabilities,
-                settings = {
-                    Lua = {
-                        completion = {
-                            callSnippet = "Replace",
-                        },
-                        workspace = {
-                            checkThirdParty = false,
-                        },
-                    },
-                },
-            })
-        end,
-    },
 })
 
 ----------------------------------------
