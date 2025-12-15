@@ -87,24 +87,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 })
 
-local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-
--- Default setup function for LSP server, i.e., `lsp[server].setup()`
-local function default_setup()
-    local ok, nl = pcall(require, "neoconfig-local")
-    if ok then
-        local setup_lsp = nl.setup_lsp[server]
-        if setup_lsp then
-            setup_lsp(lsp, lsp_capabilities)
-            return
-        end
-    end
-
-    lsp[server].setup({
-        capabilities = lsp_capabilities,
-    })
-end
-
 -- Setup servers
 
 vim.lsp.config('lua_ls', {
@@ -126,6 +108,9 @@ end
 require("mason").setup({})
 require("mason-lspconfig").setup({
     ensure_installed = ensure_installed,
+    automatic_enable = {
+        exclude = { "rust_analyzer" },
+    },
 })
 
 ----------------------------------------
